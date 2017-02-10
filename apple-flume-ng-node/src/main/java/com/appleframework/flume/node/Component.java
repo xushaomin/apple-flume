@@ -19,6 +19,8 @@ import com.appleframework.boot.core.log4j.LoggingConfig;
 import com.appleframework.boot.core.monitor.MonitorConfig;
 import com.appleframework.boot.core.monitor.MonitorContainer;
 import com.appleframework.boot.jmx.JavaContainerManager;
+import com.appleframework.boot.utils.SystemPropertiesUtils;
+import com.appleframework.flume.configuration.PropertyPlaceholderConfigurer;
 
 public class Component {
 
@@ -68,5 +70,9 @@ public class Component {
         }
         
         logger.warn(new SimpleDateFormat("[yyyy-MM-dd HH:mm:ss]").format(new Date()) + " 所有服务启动成功!");
+       
+        //初始化配置
+		PropertyPlaceholderConfigurer.processProperties(SystemPropertiesUtils.getProp());
+
 	}
 }

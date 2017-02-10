@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.Set;
-import java.util.Map.Entry;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
@@ -35,8 +35,6 @@ import org.apache.flume.node.StaticZooKeeperConfigurationProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.appleframework.boot.utils.SystemPropertiesUtils;
-import com.appleframework.flume.configuration.PropertyPlaceholderConfigurer;
 import com.google.common.base.Throwables;
 import com.google.common.collect.Lists;
 import com.google.common.eventbus.EventBus;
@@ -205,12 +203,14 @@ public class Application {
 	}
 
 	public static void main(String[] args) {
-		
 		try {
+			
+			for (String arg : args) {
+				logger.info("arg=" + arg);
+			}
+			
 			Component.init(args);
-			
-			PropertyPlaceholderConfigurer.processProperties(SystemPropertiesUtils.getProp());
-			
+						
 			boolean isZkConfigured = false;
 
 			Options options = new Options();

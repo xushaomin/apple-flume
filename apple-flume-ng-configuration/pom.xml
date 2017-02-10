@@ -17,5 +17,10 @@
 			<groupId>com.appleframework.config</groupId>
 			<artifactId>apple-config-diamond</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.appleframework.boot</groupId>
+			<artifactId>apple-boot-java</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 </project>
