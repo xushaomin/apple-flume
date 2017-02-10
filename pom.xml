@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.appleframework.flume</groupId>
@@ -12,6 +13,8 @@
 
 	<properties>
 		<flume.version>1.7.0</flume.version>
+		<boot.version>0.3.1.RELEASE</boot.version>
+		<config.version>0.2.3.RELEASE</config.version>
 	</properties>
 
 	<dependencyManagement>
@@ -31,23 +34,42 @@
 			<dependency>
 				<groupId>com.appleframework.boot</groupId>
 				<artifactId>apple-boot-java</artifactId>
-				<version>0.3.1.RELEASE</version>
+				<version>${boot.version}</version>
 				<scope>provided</scope>
 			</dependency>
-			
+
 			<dependency>
-			  	<groupId>com.appleframework.config</groupId>
-			  	<artifactId>apple-config-diamond</artifactId>
-			  	<version>0.2.3.RELEASE</version>
-			  	<scope>provided</scope>
+				<groupId>com.appleframework.config</groupId>
+				<artifactId>apple-config-diamond</artifactId>
+				<version>${config.version}</version>
+				<scope>provided</scope>
 			</dependency>
 
 		</dependencies>
 	</dependencyManagement>
 
-
 	<modules>
 		<module>apple-flume-ng-node</module>
-    <module>apple-flume-ng-configuration</module>
-  </modules>
+		<module>apple-flume-ng-configuration</module>
+	</modules>
+	
+	<profiles>
+		<profile>
+			<id>localDM</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<distributionManagement>
+				<repository>
+					<id>nexus-releases</id>
+					<url>http://mvnrepo.appleframework.com:8081/nexus/content/repositories/releases/</url>
+				</repository>
+				<snapshotRepository>
+					<id>nexus-snapshots</id>
+					<url>http://mvnrepo.appleframework.com:8081/nexus/content/repositories/snapshots/</url>
+				</snapshotRepository>
+			</distributionManagement>
+		</profile>
+	</profiles>
+	
 </project>
