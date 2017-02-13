@@ -204,12 +204,10 @@ public class Application {
 
 	public static void main(String[] args) {
 		try {
-			
+			logger.info("The Command is ");
 			for (String arg : args) {
-				logger.info("arg=" + arg);
+				logger.info(" " + arg);
 			}
-			
-			Component.init(args);
 						
 			boolean isZkConfigured = false;
 
@@ -237,6 +235,12 @@ public class Application {
 
 			option = new Option("h", "help", false, "display help text");
 			options.addOption(option);
+			
+			option = new Option("e", "env", true, "the environment of this app");
+			option.setRequired(false);
+			options.addOption(option);
+			
+			Component.init(args);
 
 			CommandLineParser parser = new GnuParser();
 			CommandLine commandLine = parser.parse(options, args);
