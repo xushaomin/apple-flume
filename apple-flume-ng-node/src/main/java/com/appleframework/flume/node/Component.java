@@ -18,7 +18,6 @@ import com.appleframework.boot.core.log4j.Log4jContainer;
 import com.appleframework.boot.core.log4j.LoggingConfig;
 import com.appleframework.boot.core.monitor.MonitorConfig;
 import com.appleframework.boot.core.monitor.MonitorContainer;
-import com.appleframework.boot.jmx.JavaContainerManager;
 import com.appleframework.boot.utils.SystemPropertiesUtils;
 import com.appleframework.config.core.EnvConfigurer;
 import com.appleframework.flume.configuration.PropertyPlaceholderConfigurer;
@@ -55,9 +54,7 @@ public class Component {
 					mbean = new MonitorConfig();
 				}
 				else {
-					JavaContainerManager containerManager = new JavaContainerManager();
-					containerManager.setContainer(container);
-					mbean = containerManager;
+					logger.error("The Error Container ：" + container.getName());
 				}
 				
 				if (mbs.isRegistered(oname)) {
