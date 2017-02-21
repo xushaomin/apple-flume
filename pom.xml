@@ -5,14 +5,14 @@
 
 	<groupId>com.appleframework.flume</groupId>
 	<artifactId>apple-flume</artifactId>
-	<version>0.0.5.RELEASE</version>
+	<version>0.0.6.RELEASE</version>
 	<packaging>pom</packaging>
 
 	<name>apple-flume</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
-		<flume.version>1.7.0</flume.version>
+		<flume.version>1.6.0</flume.version>
 		<boot.version>0.3.2.RELEASE</boot.version>
 		<config.version>0.2.5.RELEASE</config.version>
 	</properties>
@@ -24,30 +24,37 @@
 				<artifactId>flume-kafka-source</artifactId>
 				<version>${flume.version}</version>
 			</dependency>
-
 			<dependency>
 				<groupId>org.apache.flume</groupId>
 				<artifactId>flume-ng-node</artifactId>
 				<version>${flume.version}</version>
 			</dependency>
-
+			<dependency>
+				<groupId>org.apache.flume</groupId>
+				<artifactId>flume-ng-core</artifactId>
+				<version>${flume.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>com.appleframework.boot</groupId>
 				<artifactId>apple-boot-java</artifactId>
 				<version>${boot.version}</version>
 				<scope>provided</scope>
 			</dependency>
-
 			<dependency>
 				<groupId>com.appleframework.config</groupId>
 				<artifactId>apple-config-diamond</artifactId>
 				<version>${config.version}</version>
 				<scope>provided</scope>
 			</dependency>
-
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.12</version>
+				<scope>test</scope>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
-	
+
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -241,8 +248,9 @@
 
 	<modules>
 		<module>apple-flume-ng-node</module>
+		<module>apple-flume-ng-kafka-source</module>
 	</modules>
-	
+
 	<profiles>
 		<profile>
 			<id>localDM</id>
@@ -261,5 +269,5 @@
 			</distributionManagement>
 		</profile>
 	</profiles>
-	
+
 </project>
