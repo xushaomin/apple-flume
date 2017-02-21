@@ -6,18 +6,21 @@
 	<parent>
 		<groupId>com.appleframework.flume</groupId>
 		<artifactId>apple-flume</artifactId>
-		<version>0.0.6.RELEASE</version>
+		<version>0.0.7.RELEASE</version>
 	</parent>
 	<artifactId>apple-flume-ng-kafka-source</artifactId>
 	<name>flume-ng-kafka-source</name>
 	<url>http://maven.apache.org</url>
 	<properties>
-		<kafka.version>UTF-8</kafka.version>
+		<kafka.version>0.10.1.1</kafka.version>
 	</properties>
 
 
 	<dependencies>
-		
+		<dependency>
+			<groupId>org.apache.flume.flume-ng-sources</groupId>
+			<artifactId>flume-kafka-source</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.apache.flume</groupId>
 			<artifactId>flume-ng-core</artifactId>
@@ -25,7 +28,7 @@
 		<dependency>
 		 	<groupId>org.apache.kafka</groupId>
 		 	<artifactId>kafka_2.11</artifactId>
-		 	<version>0.10.1.1</version>
+		 	<version>${kafka.version}</version>
 		</dependency>				
 		<dependency>
 			<groupId>org.mockito</groupId>
