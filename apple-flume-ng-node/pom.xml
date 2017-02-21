@@ -6,18 +6,13 @@
 	<parent>
 		<groupId>com.appleframework.flume</groupId>
 		<artifactId>apple-flume</artifactId>
-		<version>0.0.4.RELEASE</version>
+		<version>0.0.5.RELEASE</version>
 	</parent>
 	<artifactId>apple-flume-ng-node</artifactId>
 	<name>apple-flume-ng-node</name>
 	<url>http://maven.apache.org</url>
 
 	<dependencies>
-		<dependency>
-			<groupId>com.appleframework.flume</groupId>
-			<artifactId>apple-flume-ng-configuration</artifactId>
-			<version>${project.version}</version>
-		</dependency>
 		<dependency>
 			<groupId>org.apache.flume</groupId>
 			<artifactId>flume-ng-node</artifactId>

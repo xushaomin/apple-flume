@@ -5,7 +5,7 @@
 
 	<groupId>com.appleframework.flume</groupId>
 	<artifactId>apple-flume</artifactId>
-	<version>0.0.4.RELEASE</version>
+	<version>0.0.5.RELEASE</version>
 	<packaging>pom</packaging>
 
 	<name>apple-flume</name>
@@ -13,8 +13,8 @@
 
 	<properties>
 		<flume.version>1.7.0</flume.version>
-		<boot.version>0.3.1.RELEASE</boot.version>
-		<config.version>0.2.4.RELEASE</config.version>
+		<boot.version>0.3.2.RELEASE</boot.version>
+		<config.version>0.2.5.RELEASE</config.version>
 	</properties>
 
 	<dependencyManagement>
@@ -241,7 +241,6 @@
 
 	<modules>
 		<module>apple-flume-ng-node</module>
-		<module>apple-flume-ng-configuration</module>
 	</modules>
 	
 	<profiles>

@@ -12,15 +12,13 @@ import javax.management.ObjectName;
 
 import org.apache.log4j.Logger;
 
+import com.appleframework.boot.config.ConfigContainer;
 import com.appleframework.boot.core.CommandOption;
 import com.appleframework.boot.core.Container;
 import com.appleframework.boot.core.log4j.Log4jContainer;
 import com.appleframework.boot.core.log4j.LoggingConfig;
 import com.appleframework.boot.core.monitor.MonitorConfig;
 import com.appleframework.boot.core.monitor.MonitorContainer;
-import com.appleframework.boot.utils.SystemPropertiesUtils;
-import com.appleframework.config.core.EnvConfigurer;
-import com.appleframework.flume.configuration.PropertyPlaceholderConfigurer;
 
 public class Component {
 
@@ -35,6 +33,11 @@ public class Component {
     	final List<Container> containers = new ArrayList<Container>();
         containers.add(new Log4jContainer());
         containers.add(new MonitorContainer());
+        
+        String configContainer = System.getProperty("config-factory");
+		if (null != configContainer) {
+			containers.add(new ConfigContainer(configContainer));
+		}
         
         for (Container container : containers) {
             container.start();
@@ -68,11 +71,5 @@ public class Component {
         }
         
         logger.warn(new SimpleDateFormat("[yyyy-MM-dd HH:mm:ss]").format(new Date()) + " 所有服务启动成功!");
-       
-        //初始化配置
-        if(null != EnvConfigurer.env) {
-        	PropertyPlaceholderConfigurer.processProperties(SystemPropertiesUtils.getProp());
-        }
-
 	}
 }
