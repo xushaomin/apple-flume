@@ -315,8 +315,8 @@
 	<modules>
 		<module>apple-flume-ng-node</module>
 		<module>apple-flume-ng-kafka-source</module>
-    <module>apple-flume-hdfs-sink</module>
-    <module>apple-flume-ng-configuration</module>
+		<module>apple-flume-ng-configuration</module>
+		<module>apple-flume-hdfs-sink</module>
 	</modules>
 
 	<profiles>
