@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>com.appleframework.flume</groupId>
 		<artifactId>apple-flume</artifactId>
-		<version>0.0.7.RELEASE</version>
+		<version>0.0.8.RELEASE</version>
 	</parent>
 	<artifactId>apple-flume-hdfs-sink</artifactId>
 	<name>apple-flume-hdfs-sink</name>
