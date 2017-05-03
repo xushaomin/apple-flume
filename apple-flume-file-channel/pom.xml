@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.appleframework.flume</groupId>
+		<artifactId>apple-flume</artifactId>
+		<version>0.0.8.RELEASE</version>
+	</parent>
+	<artifactId>apple-flume-file-channel</artifactId>
+	<name>apple-flume-file-channel</name>
+	<url>http://maven.apache.org</url>
+
+	<dependencies>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>apple-flume-ng-configuration</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.flume.flume-ng-channels</groupId>
+			<artifactId>flume-file-channel</artifactId>
+		</dependency>
+	</dependencies>
+</project>

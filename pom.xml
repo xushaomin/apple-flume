@@ -47,6 +47,11 @@
 				<version>${flume.version}</version>
 			</dependency>
 			<dependency>
+				<groupId>org.apache.flume.flume-ng-channels</groupId>
+  				<artifactId>flume-file-channel</artifactId>
+				<version>${flume.version}</version>
+			</dependency>
+			<dependency>
 				<groupId>com.appleframework.boot</groupId>
 				<artifactId>apple-boot-java</artifactId>
 				<version>${boot.version}</version>
@@ -317,7 +322,8 @@
 		<module>apple-flume-ng-kafka-source</module>
 		<module>apple-flume-ng-configuration</module>
 		<module>apple-flume-hdfs-sink</module>
-	</modules>
+    <module>apple-flume-file-channel</module>
+  </modules>
 
 	<profiles>
 		<profile>
