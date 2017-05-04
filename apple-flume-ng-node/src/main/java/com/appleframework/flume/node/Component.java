@@ -13,6 +13,7 @@ import javax.management.ObjectName;
 import org.apache.log4j.Logger;
 
 import com.appleframework.boot.config.ConfigContainer;
+import com.appleframework.boot.config.jmx.ConfigContainerManager;
 import com.appleframework.boot.core.CommandOption;
 import com.appleframework.boot.core.Container;
 import com.appleframework.boot.core.log4j.Log4jContainer;
@@ -50,20 +51,26 @@ public class Component {
 				
 				ObjectName oname = ObjectName.getInstance("com.appleframework", properties);
 				Object mbean = null;
+				boolean hasMbean = true;
 				if(container instanceof Log4jContainer) {
 					mbean = new LoggingConfig();
 				}
 				else if(container instanceof MonitorContainer) {
 					mbean = new MonitorConfig();
 				}
+				else if(container instanceof ConfigContainer) {
+					mbean = new ConfigContainerManager();
+				}
 				else {
-					logger.error("The Error Container ：" + container.getName());
+					hasMbean = false;
+					logger.error("The Error Container ：" + container.getType());
 				}
-				
-				if (mbs.isRegistered(oname)) {
-					mbs.unregisterMBean(oname);
+				if(hasMbean) {
+					if (mbs.isRegistered(oname)) {
+						mbs.unregisterMBean(oname);
+					}
+					mbs.registerMBean(mbean, oname);
 				}
-				mbs.registerMBean(mbean, oname);
 			} catch (Exception e) {
 				logger.error("注册JMX服务出错：" + e.getMessage(), e);
 			}
